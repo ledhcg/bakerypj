@@ -11,18 +11,20 @@ session_start();
 
 class AdminController extends Controller
 {
+
+    public function checkAuth(){
+        $check = Session::get('admin_id');
+        if(!$check) return Redirect::to('/admin')->send();
+    }
+
+    
     public function index(){
         return view('admin.admin_login');
     }
 
     public function dashboard(){
-        $check = Session::get('admin_name');
-        if($check){
-            return view('admin.dashboard');
-        } else {
-            return Redirect::to('/admin');
-        }
-        
+        $this->checkAuth();
+        return view('admin.dashboard');
     }
 
 

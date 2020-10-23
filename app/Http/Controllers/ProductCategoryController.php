@@ -10,10 +10,17 @@ session_start();
 
 class ProductCategoryController extends Controller
 {
+    public function checkAuth(){
+        $check = Session::get('admin_id');
+        if(!$check) return Redirect::to('/admin')->send();
+    }
+
     public function add_product_category(){
+        $this->checkAuth();
         return view('admin.add_product_category');
     }
     public function show_all_product_categories(){
+        $this->checkAuth();
         $all_categories = DB::table('tbl_product_category')->get();
         $manager_product_categories = view('admin.show_all_product_categories')->with('all_categories', $all_categories);
 
@@ -46,6 +53,7 @@ class ProductCategoryController extends Controller
     }
 
     public function edit_product_category($product_category_id){
+        $this->checkAuth();
         $edit_product_category = DB::table('tbl_product_category')->where('id', $product_category_id)->get();
         $manager_product_categories = view('admin.edit_product_category')->with('edit_product_category', $edit_product_category);
 

@@ -10,10 +10,18 @@ session_start();
 
 class ProductController extends Controller
 {
+    public function checkAuth(){
+        $check = Session::get('admin_id');
+        if(!$check) return Redirect::to('/admin')->send();
+    }
+
+
     public function add_product(){
+        $this->checkAuth();
         return view('admin.add_product');
     }
     public function show_all_products(){
+        $this->checkAuth();
         $all_products = DB::table('tbl_product')->get();
         $manager_products = view('admin.show_all_products')->with('all_products', $all_products);
 
@@ -51,6 +59,7 @@ class ProductController extends Controller
     }
 
     public function edit_product($product_id){
+        $this->checkAuth();
         $edit_product = DB::table('tbl_product')->where('id', $product_id)->get();
         $manager_products = view('admin.edit_product')->with('edit_product', $edit_product);
 
