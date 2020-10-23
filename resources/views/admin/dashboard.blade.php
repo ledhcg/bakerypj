@@ -6,6 +6,7 @@
     <title>ADMIN | AmBakery</title>
     
     <link rel="stylesheet" href="{{URL::to('public/admin/assets/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{URL::to('public/admin/assets/vendors/simple-datatables/style.css')}}">
     
     <link rel="stylesheet" href="{{URL::to('public/admin/assets/vendors/chartjs/Chart.min.css')}}">
 
@@ -40,8 +41,8 @@
 
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i data-feather="triangle" width="20"></i> 
-                        <span>Product menu</span>
+                        <i data-feather="package" width="20"></i> 
+                        <span>Product categories</span>
                     </a>
                     
                     <ul class="submenu ">
@@ -51,7 +52,29 @@
                         </li>
                         
                         <li>
-                            <a href="{{URL::to('/show_all_products_categories')}}">Show all product categories</a>
+                            <a href="{{URL::to('/show_all_product_categories')}}">Show all product categories</a>
+                        </li>
+                        
+                      
+                        
+                    </ul>
+                    
+                </li>
+
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i data-feather="shopping-bag" width="20"></i> 
+                        <span>Products</span>
+                    </a>
+                    
+                    <ul class="submenu ">
+                        
+                        <li>
+                            <a href="{{URL::to('/add_product')}}">Add a product</a>
+                        </li>
+                        
+                        <li>
+                            <a href="{{URL::to('/show_all_products')}}">Show all products</a>
                         </li>
                         
                       
@@ -190,6 +213,8 @@
     <script src="{{URL::to('public/admin/assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
     <script src="{{URL::to('public/admin/assets/js/pages/dashboard.js')}}"></script>
 
+    <script src="{{URL::to('public/admin/assets/vendors/simple-datatables/simple-datatables.js')}}"></script>
+    <script src="{{URL::to('public/admin/assets/js/vendors.js')}}"></script>
     <script src="{{URL::to('public/admin/assets/js/main.js')}}"></script>
 </body>
 </html>

@@ -6,20 +6,12 @@
         <div>
         <div class="card">
             <div class="card-header">
-            <h4 class="card-title">Add a new product category</h4>
-
-                    <?php
-                        $message = Session::get('message');
-                        if($message){
-                            echo '<h6>' .$message. '</h6>';
-                            Session::put('message', null);
-                        }
-                    ?>
+            <h4 class="card-title">Edit product category</h4>
             </div>
             <div class="card-content">
             <div class="card-body">
             @foreach ($edit_product_category as $key => $edit_value)
-                <form class="form form-vertical" action="{{URL::to('/save_new_product_category')}}" method="post">
+                <form class="form form-vertical" action="{{URL::to('/update_product_category/'.$edit_value->id)}}" method="post">
                   
                 <div class="form-body">
                         <div class="row">
@@ -42,9 +34,9 @@
                              <div class="form-group">
                              <label for="" class="form-label">Status</label>
                                         <select class="choices form-select" name="category_status">
-                                                                             
-                                            <option value="1">Active</option>
-                                            <option value="0">Inactive</option>
+                                                           
+                                            <option value="1" <?php if($edit_value->category_status) echo 'selected="selected"' ?>>Active</option>
+                                            <option value="0" <?php if(!$edit_value->category_status) echo 'selected="selected"' ?>>Inactive</option>
                                    
                                         </select>
                                     </div>       
