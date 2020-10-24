@@ -81,9 +81,7 @@ class ProductController extends Controller
     public function edit_product($product_id){
         
         $this->checkAuth();
-        $edit_product = DB::table('tbl_product')->join('tbl_product_category','tbl_product_category.id', '=','tbl_product.category_id')
-        ->join('tbl_brand','tbl_brand.id', '=','tbl_product.brand_id')
-        ->where('tbl_product.id', $product_id)->get();
+        $edit_product = DB::table('tbl_product')->where('tbl_product.id', $product_id)->get();
         $category = DB::table('tbl_product_category')->get();
         $brand = DB::table('tbl_brand')->get();
         $manager_products = view('admin.edit_product')->with('edit_product', $edit_product)->with('category', $category)->with('brand', $brand);
@@ -115,15 +113,14 @@ class ProductController extends Controller
             $get_image->move('public/images/products', $new_image);
             $data['product_image'] = $new_image;
 
-            DB::table('tbl_product')->where('id', $product_id)->update($data);;
-            Session::put('message', 'Update product successfully!');
-            return Redirect::to('show_all_products');
-        } 
-        
-        DB::table('tbl_product')->where('id', $product_id)->update($data);;
+            DB::table('tbl_product')->where('id', $product_id)->update($data);
             Session::put('message', 'Update product successfully!');
             return Redirect::to('show_all_products');
 
+        } 
+        DB::table('tbl_product')->where('id', $product_id)->update($data);
+        Session::put('message', 'Update product successfully!');
+        return Redirect::to('show_all_products');
     }
 
     public function delete_product($product_id){

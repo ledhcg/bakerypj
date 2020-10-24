@@ -14,6 +14,7 @@
             @foreach ($edit_product as $key => $edit_value)
             
                 <form class="form form-vertical" action="{{URL::to('/update_product/'.$edit_value->id)}}" method="post" enctype="multipart/form-data">
+
                   
                 <div class="form-body">
                         <div class="row">
@@ -30,7 +31,11 @@
                             <label for="" class="form-label">Brand</label>
                                         <select class="choices form-select" name="brand_id">
                                             @foreach($brand as $key => $brd)
-                                            <option value="{{$brd->id}}" <?php if($edit_value->brand_id == $brd->id) echo 'selected>' ?> {{$brd->brand_name}}</option>
+                                                @if($edit_value->brand_id == $brd->id)
+                                                    <option value="$brd->id" selected >{{$brd->brand_name}}</option>
+                                                @else
+                                                    <option value="$brd->id">{{$brd->brand_name}}</option>
+                                                @endif
                                             @endforeach
                                         </select>
                             </div>
@@ -40,8 +45,12 @@
                             <div class="form-group">
                             <label for="" class="form-label">Category</label>
                                         <select class="choices form-select" name="category_id">
-                                             @foreach($category as $key => $cate)
-                                            <option value="{{$brd->id}}" <?php if($edit_value->category_id == $cate->id) echo 'selected>' ?> {{$cate->category_name}}</option>
+                                            @foreach($category as $key => $cate)
+                                                @if($edit_value->category_id == $cate->id)
+                                                    <option value="$cate->id" selected >{{$cate->category_name}}</option>
+                                                @else
+                                                    <option value="$cate->id">{{$cate->category_name}}</option>
+                                                @endif
                                             @endforeach
                                         </select>
                             </div>
