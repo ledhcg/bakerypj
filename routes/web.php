@@ -64,6 +64,18 @@ Route::get('/inactive_product_category/{product_category_id}', 'ProductCategoryC
 Route::post('/save_new_product_category', 'ProductCategoryController@save_new_product_category');
 Route::post('/update_product_category/{product_category_id}', 'ProductCategoryController@update_product_category');
 
+//Brands
+Route::get('/add_brand', 'BrandController@add_brand');
+Route::get('/show_all_brands', 'BrandController@show_all_brands');
+Route::get('/edit_brand/{brand_id}', 'BrandController@edit_brand');
+Route::get('/delete_brand/{brand_id}', 'BrandController@delete_brand');
+
+Route::get('/active_brand/{brand_id}', 'BrandController@active_brand');
+Route::get('/inactive_brand/{brand_id}', 'BrandController@inactive_brand');
+
+Route::post('/save_new_brand', 'BrandController@save_new_brand');
+Route::post('/update_brand/{brand_id}', 'BrandController@update_brand');
+
 //Products
 Route::get('/add_product', 'ProductController@add_product');
 Route::get('/show_all_products', 'ProductController@show_all_products');

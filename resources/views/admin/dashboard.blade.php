@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN | AmBakery</title>
+ 
     
-    <link rel="stylesheet" href="{{URL::to('public/admin/assets/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{URL::to('public/admin/assets/vendors/simple-datatables/style.css')}}">
+    <link rel="stylesheet" href="{{URL::to('public/admin/assets/vendors/simple-datatables/style.css?v=echo time()')}}">
+    <!-- Include Choices CSS -->
+        <link rel="stylesheet" href="{{URL::to('public/admin/assets/vendors/choices.js/choices.min.css?v=echo time()')}}" />
     
-    <link rel="stylesheet" href="{{URL::to('public/admin/assets/vendors/chartjs/Chart.min.css')}}">
+    
+    <link rel="stylesheet" href="{{URL::to('public/admin/assets/vendors/chartjs/Chart.min.css?v=echo time()')}}">
+    
 
-    <link rel="stylesheet" href="{{URL::to('public/admin/assets/vendors/perfect-scrollbar/perfect-scrollbar.css')}}">
-    <link rel="stylesheet" href="{{URL::to('public/admin/assets/css/app.css')}}">
+    <link rel="stylesheet" href="{{URL::to('public/admin/assets/vendors/perfect-scrollbar/perfect-scrollbar.css?v=echo time()')}}">
+    <link rel="stylesheet" href="{{URL::to('public/admin/assets/css/bootstrap.css?v=echo time()')}}">
+    <link rel="stylesheet" href="{{URL::to('public/admin/assets/css/app.css?v=echo time()')}}">
     <link rel="shortcut icon" href="{{URL::to('public/admin/assets/logo/AmBakery.ico')}}" type="image/x-icon">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,500;1,600&display=swap" rel="stylesheet">
@@ -24,7 +29,7 @@
         <img src="{{URL::to('public/admin/assets/logo/AmBakeryTextLogo.svg')}}" alt="" srcset="">
     </div>
     <div class="sidebar-menu">
-        <ul class="menu">
+        <ul class="menu keep-submenu">
             
             
                 <li class='sidebar-title'>Main Menu</li>
@@ -53,6 +58,28 @@
                         
                         <li>
                             <a href="{{URL::to('/show_all_product_categories')}}">Show all product categories</a>
+                        </li>
+                        
+                      
+                        
+                    </ul>
+                    
+                </li>
+
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i data-feather="shopping-bag" width="20"></i> 
+                        <span>Brands</span>
+                    </a>
+                    
+                    <ul class="submenu ">
+                        
+                        <li>
+                            <a href="{{URL::to('/add_brand')}}">Add a brand</a>
+                        </li>
+                        
+                        <li>
+                            <a href="{{URL::to('/show_all_brands')}}">Show all brands</a>
                         </li>
                         
                       
@@ -205,16 +232,18 @@
             </footer>
         </div>
     </div>
-    <script src="{{URL::to('public/admin/assets/js/feather-icons/feather.min.js')}}"></script>
-    <script src="{{URL::to('public/admin/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
-    <script src="{{URL::to('public/admin/assets/js/app.js')}}"></script>
+    <script src="{{URL::to('public/admin/assets/js/feather-icons/feather.min.js?v=echo time()')}}"></script>
+    <script src="{{URL::to('public/admin/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js?v=echo time()')}}"></script>
+    <script src="{{URL::to('public/admin/assets/js/app.js?v=echo time()')}}"></script>
     
-    <script src="{{URL::to('public/admin/assets/vendors/chartjs/Chart.min.js')}}"></script>
-    <script src="{{URL::to('public/admin/assets/vendors/apexcharts/apexcharts.min.js')}}"></script>
-    <script src="{{URL::to('public/admin/assets/js/pages/dashboard.js')}}"></script>
+    <script src="{{URL::to('public/admin/assets/vendors/chartjs/Chart.min.js?v=echo time()')}}"></script>
+    <script src="{{URL::to('public/admin/assets/vendors/apexcharts/apexcharts.min.js?v=echo time()')}}"></script>
+    <script src="{{URL::to('public/admin/assets/js/pages/dashboard.js?v=echo time()')}}"></script>
+    <!-- Include Choices JavaScript -->
+    <script src="{{URL::to('public/admin/assets/vendors/choices.js/choices.min.js?v=echo time()')}}"></script>
 
-    <script src="{{URL::to('public/admin/assets/vendors/simple-datatables/simple-datatables.js')}}"></script>
-    <script src="{{URL::to('public/admin/assets/js/vendors.js')}}"></script>
-    <script src="{{URL::to('public/admin/assets/js/main.js')}}"></script>
+    <script src="{{URL::to('public/admin/assets/vendors/simple-datatables/simple-datatables.js?v=echo time()')}}"></script>
+    <script src="{{URL::to('public/admin/assets/js/vendors.js?v=echo time()')}}"></script>
+    <script src="{{URL::to('public/admin/assets/js/main.js?v=echo time()')}}"></script>
 </body>
 </html>

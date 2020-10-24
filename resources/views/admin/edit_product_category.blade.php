@@ -35,8 +35,8 @@
                              <label for="" class="form-label">Status</label>
                                         <select class="choices form-select" name="category_status">
                                                            
-                                            <option value="1" <?php if($edit_value->category_status) echo 'selected="selected"' ?>>Active</option>
-                                            <option value="0" <?php if(!$edit_value->category_status) echo 'selected="selected"' ?>>Inactive</option>
+                                            <option value="1" <?php if($edit_value->category_status) echo 'selected' ?>>Active</option>
+                                            <option value="0" <?php if(!$edit_value->category_status) echo 'selected' ?>>Inactive</option>
                                    
                                         </select>
                                     </div>       

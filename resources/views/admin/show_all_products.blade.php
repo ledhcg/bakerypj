@@ -27,6 +27,7 @@
                                         <th data-sortable="false">ID</th>
                                         <th data-sortable="false">Name</th>
                                         <th data-sortable="false">Brand</th>
+                                        <th data-sortable="false">Category</th>
                                         <th data-sortable="false">Description</th>
                                         <th data-sortable="false">Price</th>
                                         <th data-sortable="false">Sale</th>
@@ -45,14 +46,35 @@
                                     <tr>
                                         <td>{{$prod->id}}</td>
                                         <td>{{$prod->product_name}}</td>
-                                        <td>{{$prod->product_brand}}</td>
+                                        @foreach ($brand as $key => $brd)
+                                        <?php 
+                                        if ($prod->brand_id == $brd->id){
+                                            echo '
+                                            <td>' .($brd->brand_name). '</td>
+                                            ';
+                                        }
+                                        ?>
+                                        @endforeach
+
+                                        @foreach ($category as $key => $cate)
+                                        <?php 
+                                        if ($prod->category_id == $cate->id){
+                                            echo '
+                                            <td>' .($cate->category_name). '</td>
+                                            ';
+                                        }
+                                        ?>
+                                        @endforeach
+                                       
+                                        
                                         <td>{{$prod->product_description}}</td>
                                         <td>{{$prod->product_unit_price}}</td>
                                         <td>{{$prod->product_sale_price}}</td>
                                         <td>{{$prod->product_size}}</td>
-                                        <td>{{$prod->product_image}}</td>
+                                        <td><image style="height:100px;" src="{{URL::to('public/images/products/'.$prod->product_image)}}"></image></td>
                                         <td>{{$prod->created_at}}</td>
                                         <td>{{$prod->updated_at}}</td>
+                                        
                                         <td>
                                             <?php
                                             if ($prod->product_status){ ?>

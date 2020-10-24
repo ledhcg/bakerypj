@@ -10,8 +10,10 @@
             </div>
             <div class="card-content">
             <div class="card-body">
+            
             @foreach ($edit_product as $key => $edit_value)
-                <form class="form form-vertical" action="{{URL::to('/update_product/'.$edit_value->id)}}" method="post">
+            
+                <form class="form form-vertical" action="{{URL::to('/update_product/'.$edit_value->id)}}" method="post" enctype="multipart/form-data">
                   
                 <div class="form-body">
                         <div class="row">
@@ -23,13 +25,28 @@
                             </div>
                         </div>
 
-                        <div class="col-12">
+                          <div class="col-12">
                             <div class="form-group">
-                            <label for="">Brand</label>
-                            <input type="text" id="" class="form-control" value="{{$edit_value->product_brand}}" name="product_brand"
-                                placeholder="( Brand )">
+                            <label for="" class="form-label">Brand</label>
+                                        <select class="choices form-select" name="brand_id">
+                                            @foreach($brand as $key => $brd)
+                                            <option value="{{$brd->id}}" <?php if($edit_value->brand_id == $brd->id) echo 'selected>' ?> {{$brd->brand_name}}</option>
+                                            @endforeach
+                                        </select>
                             </div>
                         </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                            <label for="" class="form-label">Category</label>
+                                        <select class="choices form-select" name="category_id">
+                                             @foreach($category as $key => $cate)
+                                            <option value="{{$brd->id}}" <?php if($edit_value->category_id == $cate->id) echo 'selected>' ?> {{$cate->category_name}}</option>
+                                            @endforeach
+                                        </select>
+                            </div>
+                        </div>
+
                         <div class="col-12">
                         
                             <div class="form-group">
@@ -68,20 +85,30 @@
                              <label for="" class="form-label">Status</label>
                                         <select class="choices form-select" name="product_status">
                                                            
-                                            <option value="1" <?php if($edit_value->product_status) echo 'selected="selected"' ?>>Active</option>
-                                            <option value="0" <?php if(!$edit_value->product_status) echo 'selected="selected"' ?>>Inactive</option>
+                                            <option value="1" <?php if($edit_value->product_status) echo 'selected' ?>>Active</option>
+                                            <option value="0" <?php if(!$edit_value->product_status) echo 'selected' ?>>Inactive</option>
                                    
                                         </select>
                                     </div>       
                         </div>
+
                         <div class="col-12">
-                            <div class="form-group">
+                        <div class="form-group">
                             <label for="">Image</label>
-                            <input type="text" id="" class="form-control" name="product_image" value="{{$edit_value->product_image}}"
-                                placeholder="( Link )">
-                            </div>
+                            <div class="form-file">
+                                         
+                                        <input type="file" class="form-file-input" name="product_image" id="file-upload">
+                                        <label class="form-file-label" for="customFile">
+                                            <span class="form-file-text" id="file-name">{{$edit_value->product_image}}</span>
+                                            <span class="form-file-button btn-primary "><i data-feather="upload"></i></span>
+                                        </label>
+                                    </div>
+                              </div>
                         </div>
-                    
+
+                        
+
+
                         <div class="col-12 d-flex justify-content-end">
                         {{csrf_field()}}  
                             <button type="submit" class="btn btn-primary mr-1 mb-1">Update</button>

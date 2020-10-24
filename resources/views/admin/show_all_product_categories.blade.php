@@ -3,7 +3,7 @@
 
 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h4 class="card-title">All products categories</h4> 
+                        <h4 class="card-title">All product categories</h4> 
                         <?php
                             $message = Session::get('message');
                             if($message){

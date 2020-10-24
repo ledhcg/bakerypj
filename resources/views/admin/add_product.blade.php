@@ -18,7 +18,7 @@
             </div>
             <div class="card-content">
             <div class="card-body">
-                <form class="form form-vertical" action="{{URL::to('/save_new_product')}}" method="post">
+                <form class="form form-vertical" action="{{URL::to('/save_new_product')}}" method="post" enctype="multipart/form-data">
                   
                 <div class="form-body">
                         <div class="row">
@@ -31,9 +31,21 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                            <label for="">Brand</label>
-                            <input type="text" id="" class="form-control" name="product_brand"
-                                placeholder="( Brand )">
+                                        <select class="choices form-select" name="brand_id">
+                                            @foreach($brand as $key => $brd)
+                                            <option value="{{$brd->id}}">{{$brd->brand_name}}</option>
+                                            @endforeach
+                                        </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                        <select class="choices form-select" name="category_id">
+                                            @foreach($category as $key => $cate)
+                                            <option value="{{$cate->id}}">{{$cate->category_name}}</option>
+                                            @endforeach
+                                        </select>
                             </div>
                         </div>
 
@@ -52,6 +64,20 @@
                             <input type="text" id="" class="form-control" name="product_unit_price"
                                 placeholder="( Price )">
                             </div>
+                        </div>
+
+                        <div class="col-12">
+                        <div class="form-group">
+                            <label for="">Image</label>
+                            <div class="form-file">
+                                         
+                                        <input type="file" class="form-file-input" name="product_image" id="file-upload">
+                                        <label class="form-file-label" for="customFile">
+                                            <span class="form-file-text" id="file-name">Choose file...</span>
+                                            <span class="form-file-button btn-primary "><i data-feather="upload"></i></span>
+                                        </label>
+                                    </div>
+                              </div>
                         </div>
 
                         <div class="col-12">
@@ -83,13 +109,7 @@
                                         </select>
                                     </div>       
                         </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                            <label for="">Image</label>
-                            <input type="text" id="" class="form-control" name="product_image"
-                                placeholder="( Link )">
-                            </div>
-                        </div>
+                        
                     
                         <div class="col-12 d-flex justify-content-end">
                         {{csrf_field()}}  
