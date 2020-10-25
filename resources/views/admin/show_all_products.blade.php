@@ -28,13 +28,17 @@
                                         <th data-sortable="false">Name</th>
                                         <th data-sortable="false">Brand</th>
                                         <th data-sortable="false">Category</th>
+                                        <!--
                                         <th data-sortable="false">Description</th>
+                                        -->
                                         <th data-sortable="false">Price</th>
                                         <th data-sortable="false">Sale</th>
                                         <th data-sortable="false">Size</th>
                                         <th data-sortable="false">Image</th>
+                                        <!--
                                         <th data-sortable="false">Created</th>
                                         <th data-sortable="false">Updated</th>
+                                        -->
                                         <th data-sortable="false">Status</th>
                                         <th data-sortable="false">Edit</th>
                                        
@@ -66,15 +70,17 @@
                                         ?>
                                         @endforeach
                                        
-                                        
+                                        <!--
                                         <td>{{$prod->product_description}}</td>
+                                        -->
                                         <td>{{$prod->product_unit_price}}</td>
                                         <td>{{$prod->product_sale_price}}</td>
                                         <td>{{$prod->product_size}}</td>
                                         <td><image style="height:100px;" src="{{URL::to('public/images/products/'.$prod->product_image)}}"></image></td>
+                                        <!--
                                         <td>{{$prod->created_at}}</td>
                                         <td>{{$prod->updated_at}}</td>
-                                        
+                                        -->
                                         <td>
                                             <?php
                                             if ($prod->product_status){ ?>
