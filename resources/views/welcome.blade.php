@@ -123,12 +123,12 @@
                                         </div>
                                      </li>
                                     <li class=" d-none d-xl-block">
-                                        <div class="favorit-items">
+                                        <div data-text="04" class="favorit-items">
                                             <i class="far fa-heart"></i>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="shopping-card">
+                                        <div data-text="03" class="shopping-card">
                                             <a href="cart.html" data-toggle="modal" data-target="#idCartModal"><i class="fas fa-shopping-cart"></i></a>
                                         </div>
                                     </li>
@@ -182,7 +182,7 @@
                 <td>
                   <div class="media">
                     <div class="d-flex">
-                      <img src="assets/img/arrivel/arrivel_1.png" alt="" />
+                      <img style="border-radius: 10px;" src="{{URL::to('public/frontend/assets/img/arrivel/arrivel_1.png')}}" alt="" />
                     </div>
                     <div class="media-body">
                       <p>Minimalistic shop for multipurpose use</p>

@@ -31,3 +31,7 @@
 - Thêm ?v=echo time() sau link href hoặc scr: VD: <link rel="stylesheet" href="{{URL::to('public/admin/assets/css/app.css?v=echo time()')}}">
 
 * Gửi ảnh thì cần có enctype="multipart/form-data" trong thẻ form 
+
+* Sử dụng attributes thay thế content trong css: https://css-tricks.com/css-content/
+
+* Package shopping cart : https://packagist.org/packages/bumbummen99/shoppingcart

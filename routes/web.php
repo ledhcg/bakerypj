@@ -87,6 +87,11 @@ Route::get('/inactive_product/{product_id}', 'ProductController@inactive_product
 Route::post('/save_new_product', 'ProductController@save_new_product');
 Route::post('/update_product/{product_id}', 'ProductController@update_product');
 
+//Cart
+
+Route::post('/save_cart', 'CartController@save_cart');
+Route::post('/show_cart', 'CartController@show_cart');
+
 
 //clear cache
 Route::get('/clear-cache', function() {

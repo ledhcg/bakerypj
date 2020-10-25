@@ -4,7 +4,7 @@
   <!-- slider Area Start-->
   <div class="slider-area ">
     <!-- Mobile Menu -->
-    <div class="single-slider slider-height2 d-flex align-items-center" data-background="{{URL::to('public/frontend/assets/img/hero/category.jpg')}}">
+    <div class="single-slider slider-height2 d-flex align-items-center" data-background="{{URL::to('public/frontend/assets/img/hero/category1.jpg')}}">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -105,9 +105,18 @@
                                         <img src="{{URL::to('public/images/products/'.$prod->product_image)}}" alt="">
                                        
                                         <div class="shopping">
-                                            <a href="#"><span><i class="fas fa-cart-plus"></i></span></a>
-                                            <a href="#"><span><i class="far fa-heart"></i></span></a>
-                                            <a href="#"><span><i class="fas fa-shopping-basket"></i></span></a>
+                                            <form action="{{URL::to('/save_cart')}}" id="form_add_to_cart" method="post">
+                                                {{csrf_field()}}  
+                                              
+
+                                                    <input name="product_quantity" type="hidden" min="1" value="1"/>
+                                                    <input name="product_id" type="hidden" value="{{$prod->id}}" />
+                                                    <a href="javascript:{}" onclick="document.getElementById('form_add_to_cart').submit();"><span><i class="fas fa-cart-plus"></i></span></a>
+                                                    <a href="javascript:{}" onclick="document.getElementById('form_add_to_cart').submit();"><span><i class="far fa-heart"></i></span></a>
+                                                    <a href="#"><span><i class="fas fa-shopping-basket"></i></span></a>
+                                            </form>
+
+                                            
                                         </div>
                                         <div class="new-product">
                                             <span>New</span>
