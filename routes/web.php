@@ -88,3 +88,8 @@ Route::post('/save_new_product', 'ProductController@save_new_product');
 Route::post('/update_product/{product_id}', 'ProductController@update_product');
 
 
+//clear cache
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
+});

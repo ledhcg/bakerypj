@@ -20,7 +20,7 @@
             <link rel="stylesheet" href="{{URL::to('public/frontend/assets/css/themify-icons.css')}}">
             <link rel="stylesheet" href="{{URL::to('public/frontend/assets/css/slick.css')}}">
             <link rel="stylesheet" href="{{URL::to('public/frontend/assets/css/nice-select.css')}}">
-            <link rel="stylesheet" href="{{URL::to('public/frontend/assets/css/style.css')}}">
+            <link rel="stylesheet" href="{{URL::to('public/frontend/assets/css/style.css?v=echo time()')}}">
 
            
    </head>
@@ -83,7 +83,7 @@
                        </div>
                    </div>
                 </div>
-               <div class="header-bottom  header-sticky">
+               <div class="header-bottom">
                     <div class="container-fluid">
                         <div class="row align-items-center">
                             <!-- Logo -->
@@ -129,7 +129,7 @@
                                     </li>
                                     <li>
                                         <div class="shopping-card">
-                                            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                                            <a href="cart.html" data-toggle="modal" data-target="#idCartModal"><i class="fas fa-shopping-cart"></i></a>
                                         </div>
                                     </li>
                                 </ul>
@@ -149,6 +149,105 @@
     <main>
 
     @yield('content')
+
+
+    <!-- Modal shopping -->
+    <div style="z-index: 10000;" class="modal fade" id="idCartModal" tabindex="-1" aria-labelledby="CartModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div style="padding-left: 40px;" class="modal-header">
+        <h5 style="font-weight: 800;" class="modal-title" id="CartModal">MY CART</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div  class="modal-body">
+        <!-- Cart -->
+
+        <section class="cart_area">
+    <div class="container">
+      <div class="cart_inner">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="media">
+                    <div class="d-flex">
+                      <img src="assets/img/arrivel/arrivel_1.png" alt="" />
+                    </div>
+                    <div class="media-body">
+                      <p>Minimalistic shop for multipurpose use</p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <h5>$360.00</h5>
+                </td>
+                <td>
+                  <div class="product_count">
+                    <!-- <input type="text" value="1" min="0" max="10" title="Quantity:"
+                      class="input-text qty input-number" />
+                    <button
+                      class="increase input-number-increment items-count" type="button">
+                      <i class="ti-angle-up"></i>
+                    </button>
+                    <button
+                      class="reduced input-number-decrement items-count" type="button">
+                      <i class="ti-angle-down"></i>
+                    </button> -->
+                    <span class="input-number-decrement"> <i class="ti-minus"></i></span>
+                    <input class="input-number" type="text" value="1" min="0" max="10">
+                    <span class="input-number-increment"> <i class="ti-plus"></i></span>
+                  </div>
+                </td>
+                <td>
+                  <h5>$720.00</h5>
+                </td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <h5>Subtotal</h5>
+                </td>
+                <td>
+                  <h5>$2160.00</h5>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="checkout_btn_inner float-right">
+            <a class="btn_1" href="#">Continue Shopping</a>
+            <a class="btn_1 checkout_btn_1" href="#">Proceed to checkout</a>
+          </div>
+        </div>
+      </div>
+  </section>
+  <!--================End Cart Area =================-->
+
+
+
+        <!-- End Cart -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- Modal shopping -->
+
+
 
     </main>
    <footer>

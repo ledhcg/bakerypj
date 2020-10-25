@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="hero-cap text-center">
-                        <img style="height: 200px" src="{{URL::to('public/frontend/assets/logo/AmBakeryText.svg')}} " alt="">
+                        <img style="height: 200px" src="{{URL::to('public/frontend/assets/logo/AmBakeryText.svg?v=echo time()')}} " alt="">
 
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                     <div class="col-xl-4 col-lg-6">
                         <div class="single-category mb-30">
                             <div class="category-img">
-                                <img src="{{URL::to('public/frontend/assets/img/categori/cat1.jpg')}}" alt="">
+                                <img src="{{URL::to('public/frontend/assets/img/categori/cat1.jpg?v=echo time()')}}" alt="">
                                 <div class="category-caption">
                                     <h2>Drink</h2>
                                     <span class="best"><a href="#">Best New Deals</a></span>
@@ -38,7 +38,7 @@
                      <div class="col-xl-4 col-lg-6">
                         <div class="single-category mb-30">
                             <div class="category-img text-center">
-                                <img src="{{URL::to('public/frontend/assets/img/categori/cat2.jpg')}}" alt="">
+                                <img src="{{URL::to('public/frontend/assets/img/categori/cat2.jpg?v=echo time()')}}" alt="">
                                 <div class="category-caption">
                                     <span class="collection">Discount!</span>
                                     <h2>Bread</h2>
@@ -50,7 +50,7 @@
                     <div class="col-xl-4 col-lg-6">
                         <div class="single-category mb-30">
                             <div class="category-img">
-                                <img src="{{URL::to('public/frontend/assets/img/categori/cat3.jpg')}}" alt="">
+                                <img src="{{URL::to('public/frontend/assets/img/categori/cat3.jpg?v=echo time()')}}" alt="">
                                 <div class="category-caption">
                                     <h2>Cake</h2>
                                     <span class="best"><a href="#">Best New Deals</a></span>
@@ -94,10 +94,54 @@
                 </div>
                 <!-- Nav Card -->
                 <div class="tab-content" id="nav-tabContent">
-                    
+                     <!-- card one -->
+                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="row">
+                        @foreach ($random_product as $key =>$prod)
+    
+                            <div class="col-xl-4 col-lg-4 col-md-6">
+                                <div class="single-product mb-60">
+                                    <div class="product-img">
+                                        <img src="{{URL::to('public/images/products/'.$prod->product_image)}}" alt="">
+                                       
+                                        <div class="shopping">
+                                            <a href="#"><span><i class="fas fa-cart-plus"></i></span></a>
+                                            <a href="#"><span><i class="far fa-heart"></i></span></a>
+                                            <a href="#"><span><i class="fas fa-shopping-basket"></i></span></a>
+                                        </div>
+                                        <div class="new-product">
+                                            <span>New</span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="product-caption">
+                                        <div class="product-ratting">
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <i class="far fa-star low-star"></i>
+                                            <i class="far fa-star low-star"></i>
+                                        </div>
+                                        <h4><a href="#">{{$prod->product_name}}</a></h4>
+                                        <div class="price">
+                                            <ul>
+                                                <li>${{$prod->product_unit_price}}</li>
+                                                @if ($prod->product_sale_price > 0)
+                                                <li class="discount">${{$prod->product_sale_price}}</li>
+                                                @endif
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                 
+                            @endforeach
+                          
+                        </div>
+                    </div>
                 @foreach ($category as $key => $cate)
                     
-                    <div class="tab-pane fade show active" id="category-{{$cate->id}}" role="tabpanel" aria-labelledby="category-{{$cate->id}}-tab">
+                    <div class="tab-pane fade" id="category-{{$cate->id}}" role="tabpanel" aria-labelledby="category-{{$cate->id}}-tab">
                         
                         <div class="row">
                             @foreach ($product as $key =>$prod)
@@ -108,7 +152,7 @@
                                         <img src="{{URL::to('public/images/products/'.$prod->product_image)}}" alt="">
                                        
                                         <div class="shopping">
-                                            <a href="#"><span><i class="fas fa-shopping-cart"></i></span></a>
+                                            <a href="#"><span><i class="fas fa-cart-plus"></i></span></a>
                                             <a href="#"><span><i class="far fa-heart"></i></span></a>
                                             <a href="#"><span><i class="fas fa-shopping-basket"></i></span></a>
                                         </div>

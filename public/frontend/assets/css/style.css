@@ -694,6 +694,7 @@ input:focus::-moz-placeholder {
   border: 2px solid transparent;
 }
 
+
 @media (max-width: 767px) {
   /* line 417, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_common.scss */
   #scrollUp {
@@ -3720,7 +3721,7 @@ input:focus {
   border-radius: 30px;
   font-size: 12px;
   top: 0px;
-  right: +7px;
+  right: -10px;
   -webkit-transition: all 0.2s ease-out 0s;
   -moz-transition: all 0.2s ease-out 0s;
   -ms-transition: all 0.2s ease-out 0s;
@@ -4378,6 +4379,7 @@ input:focus {
 .latest-product-area .single-product .product-img {
   margin-bottom: 30px;
   position: relative;
+  border-radius: 10px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.20);
 }
 
@@ -10952,9 +10954,10 @@ input:focus {
 .cart_inner .table tbody tr td .product_count input {
   width: 100px;
   padding-left: 30px;
-  height: 50px;
+  height: 60px;
   outline: none;
   box-shadow: none;
+  border-radius: 9px;
 }
 
 /* line 1164, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_product.scss */
@@ -13064,3 +13067,21 @@ input:focus {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+
+
+
+/*Modal shopping*/
+.modal {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.modal-content {
+
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: none;
+  padding: 20px;
+}  
