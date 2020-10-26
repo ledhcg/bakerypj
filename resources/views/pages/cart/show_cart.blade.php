@@ -20,8 +20,10 @@
 
 
     <?php
-      $information - Cart::content();
-    
+      $information = Cart::content();
+      echo '<pre>';
+      print_r ($information);
+      echo '</pre>';
     ?>
   <!--================Cart Area =================-->
   <section class="cart_area section_padding">
@@ -34,25 +36,31 @@
                 <th scope="col">Product</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
+                
+                <th scope="col"></th>
                 <th scope="col">Total</th>
               </tr>
             </thead>
             <tbody>
 
-              @foreach ($information as $key => $inf)
+              @foreach ($information as $inf)
               <tr>
                 <td>
                   <div class="media">
                     <div class="d-flex">
-                      <img src="{{URL::to('public/images/products/' .$information->option->image)}}" alt="" />
+                   
+                  
+                      <img src="{{URL::to('public/images/products/')}}/<?php echo ($inf->options->has('image') ? $inf->options->image : '');?>" alt="" />
+                
+                    
                     </div>
                     <div class="media-body">
-                      <p>{{$information->name}}</p>
+                      <p>{{$inf->name}}</p>
                     </div>
                   </div>
                 </td>
                 <td>
-                  <h5>{{$information->price}}</h5>
+                  <h5>{{$inf->price}}</h5>
                 </td>
                 <td>
                   <div class="product_count">
@@ -67,13 +75,17 @@
                       <i class="ti-angle-down"></i>
                     </button> -->
                     <span class="input-number-decrement"> <i class="ti-minus"></i></span>
-                    <input class="input-number" type="text" value="1" min="0" max="10">
+                    <input class="input-number" type="text" value="{{$inf->qty}}" min="0" max="50">
                     <span class="input-number-increment"> <i class="ti-plus"></i></span>
                   </div>
                 </td>
                 <td>
-                  <h5>{{$information->price*$information->qty}}</h5>
+                <a href="{{URL::to('/remove_cart_item/'.$inf->rowId)}}" style="color: red"><i class="fas fa-trash"></i></a>
                 </td>
+                <td>
+                  <h5>{{$inf->price*$inf->qty}}</h5>
+                </td>
+                
               </tr>
           @endforeach
               <tr class="bottom_button">
@@ -82,11 +94,13 @@
                 </td>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td>
                   <div class="cupon_text float-right">
                     <a class="btn_1" href="#">Close Coupon</a>
                   </div>
                 </td>
+                
               </tr>
               <tr>
                 <td></td>
@@ -94,9 +108,11 @@
                 <td>
                   <h5>Subtotal</h5>
                 </td>
+                <td></td>
                 <td>
-                  <h5>$2160.00</h5>
+                  <h5>{{Cart::total()}}</h5>
                 </td>
+                
               </tr>
               <tr class="shipping_area">
                 <td></td>
@@ -104,6 +120,7 @@
                 <td>
                   <h5>Shipping</h5>
                 </td>
+                <td></td>
                 <td>
                   <div class="shipping_box">
                     <ul class="list">

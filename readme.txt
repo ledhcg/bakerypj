@@ -35,3 +35,9 @@
 * Sử dụng attributes thay thế content trong css: https://css-tricks.com/css-content/
 
 * Package shopping cart : https://packagist.org/packages/bumbummen99/shoppingcart
+
+* Fix Memory limit errors : https://getcomposer.org/doc/articles/troubleshooting.md#memory-limit-errors /// php -d memory_limit=-1 composer.phar <...> //set memory_limit=-1
+
+* Loi không hiện ảnh trong option Cart https://github.com/Crinsane/LaravelShoppingcart/issues/92
+
+*Xoa Package: https://linuxhint.com/how-to-remove-a-package-from-laravel-using-composer/

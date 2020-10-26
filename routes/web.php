@@ -90,8 +90,8 @@ Route::post('/update_product/{product_id}', 'ProductController@update_product');
 //Cart
 
 Route::post('/save_cart', 'CartController@save_cart');
-Route::post('/show_cart', 'CartController@show_cart');
-
+Route::get('/show_cart', 'CartController@show_cart');
+Route::get('/remove_cart_item/{item_rowid}', 'CartController@remove_cart_item');
 
 //clear cache
 Route::get('/clear-cache', function() {

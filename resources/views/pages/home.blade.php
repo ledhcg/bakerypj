@@ -109,7 +109,7 @@
                                                 {{csrf_field()}}  
                                               
 
-                                                    <input name="product_quantity" type="hidden" min="1" value="1"/>
+                                                    <input name="product_quantity" type="hidden" min="1" value="5"/>
                                                     <input name="product_id" type="hidden" value="{{$prod->id}}" />
                                                     <a href="javascript:{}" onclick="document.getElementById('form_add_to_cart').submit();"><span><i class="fas fa-cart-plus"></i></span></a>
                                                     <a href="javascript:{}" onclick="document.getElementById('form_add_to_cart').submit();"><span><i class="far fa-heart"></i></span></a>

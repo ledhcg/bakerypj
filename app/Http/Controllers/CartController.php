@@ -16,29 +16,19 @@ class CartController extends Controller
         $quantity = $request->product_quantity;
 
         $product = DB::table('tbl_product')->where('id', $product_id)->first();
-        $data = array();
-        $data['id'] = $product_id;
-        $data['qty'] = $quantity;
-      
-        $data['name'] = $product->product_name;
-        $data['price'] = $product->product_unit_price;
-        $data['weight'] = $product->product_size;
-        $data['option']['sale_price'] = $product->product_sale_price;
-        $data['option']['image'] = $product->product_image;
-        $data['option']['brand'] = $product->brand_id;
-        $data['option']['category'] = $product->category_id;
+
         
 
-        Cart::add($data);
-
+        Cart::add(['id' => $product_id, 'name' => $product->product_name, 'qty' => $quantity, 'price' => $product->product_unit_price, 'weight' => 0, 'options' => ['image' => $product->product_image]]);
         return view('pages.cart.show_cart');
     }
-
+    public function remove_cart_item($item_rowid){
+        Cart::remove($item_rowid);
+        return Redirect::to('/show_cart');
+    }
     public function show_cart(){
 
-        $category = DB::table('tbl_product_category')->get();
-        $brand = DB::table('tbl_brand')->get();
-
-        return Redirect::to('pages.cart.show_cart')->with('category', $category)->with('brand', $brand);
+        $product = DB::table('tbl_product')->get();
+        return view('pages.cart.show_cart')->with('product', $product);
     }
 }

@@ -32,9 +32,9 @@
                                         <select class="choices form-select" name="brand_id">
                                             @foreach($brand as $key => $brd)
                                                 @if($edit_value->brand_id == $brd->id)
-                                                    <option value="$brd->id" selected >{{$brd->brand_name}}</option>
+                                                    <option value="{{$brd->id}}" selected >{{$brd->brand_name}}</option>
                                                 @else
-                                                    <option value="$brd->id">{{$brd->brand_name}}</option>
+                                                    <option value="{{$brd->id}}">{{$brd->brand_name}}</option>
                                                 @endif
                                             @endforeach
                                         </select>
@@ -47,9 +47,9 @@
                                         <select class="choices form-select" name="category_id">
                                             @foreach($category as $key => $cate)
                                                 @if($edit_value->category_id == $cate->id)
-                                                    <option value="$cate->id" selected >{{$cate->category_name}}</option>
+                                                    <option value="{{$cate->id}}" selected >{{$cate->category_name}}</option>
                                                 @else
-                                                    <option value="$cate->id">{{$cate->category_name}}</option>
+                                                    <option value="{{$cate->id}}">{{$cate->category_name}}</option>
                                                 @endif
                                             @endforeach
                                         </select>
